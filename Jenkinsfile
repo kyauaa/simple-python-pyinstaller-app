@@ -1,9 +1,9 @@
 pipeline {
-    agent { label 'hadoop2' }
+    agent { label 'hadoop1' }
     stages {
         stage('Build') {
             agent {
-                { label 'hadoop2' } {
+                docker {
                     image 'python:2-alpine'
                 }
             }
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             agent {
-                { label 'hadoop2' } {
+                docker {
                     image 'qnib/pytest'
                 }
             }
@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Deliver') {
             agent {
-                { label 'hadoop2' } {
+                docker {
                     image 'cdrx/pyinstaller-linux:python2'
                 }
             }
