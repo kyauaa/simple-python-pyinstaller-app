@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'hadoop2' }
+    agent { label 'hadoop1' }
     stages {
         stage('Build') {
             agent {
