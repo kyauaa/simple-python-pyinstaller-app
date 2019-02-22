@@ -36,7 +36,6 @@ pipeline {
             }
             steps {
                 sh 'pyinstaller --onefile sources/add2vals.py'
-                sh 'ping 8.8.8.8'
             }
             post {
                 success {
